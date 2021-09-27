@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 
+use App\Models\Location;
 use App\Models\Office;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,10 @@ class OfficeRepository
      */
     public function getListData(Request $request)
     {
-        return Office::simplePaginate(Office::PER_PAGE);
+        return Office::with([
+            'location:id,country_id,name',
+            'location.country:id,name'
+        ])->simplePaginate(Office::PER_PAGE);
     }
 
     /**
@@ -25,5 +29,13 @@ class OfficeRepository
     public function create(array $data) : Office
     {
         return Office::create($data);
+    }
+
+    public function firstOrCreateLocation($request)
+    {
+        return Location::firstOrCreate([
+            'country_id' => $request->location['country_id'] ?? null,
+            'name' => trim($request->location['name'] ?? '')
+        ]);
     }
 }

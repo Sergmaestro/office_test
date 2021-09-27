@@ -18,7 +18,7 @@ class CreateOfficesTable extends Migration
             $table->unsignedBigInteger('location_id');
 
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('email')->nullable();
             $table->string('slug')->nullable();
             $table->timestamps();

@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OfficeRequest;
 use App\Models\Office;
+use App\Repositories\CountryRepository;
 use App\Repositories\OfficeRepository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -52,16 +53,24 @@ class OfficeController extends Controller
 
     /**
      * @param $id
+     * @param CountryRepository $countryRepository
      * @return Application|Factory|View
      */
-    public function edit($id)
+    public function edit($id, CountryRepository $countryRepository)
     {
         if ($id) {
-            $organization = Office::findOrFail($id);
+            $office = Office::findOrFail($id);
+            $office->load('location');
         }
 
         return view('office.edit', [
-            'office' => $organization ?? (object) []
+            'office' => $office ?? (object) [
+                'location' => (object) [
+                    'country_id' => null,
+                    'name' => null,
+                ]
+            ],
+            'countries' => $countryRepository->getAllForDropdown()
         ]);
     }
 
@@ -71,8 +80,11 @@ class OfficeController extends Controller
      */
     public function create(OfficeRequest $request) : JsonResponse
     {
-        $organizationData = $request->only(['name', 'description', 'email', 'tmpFile']);
-        $office = $this->officeRepository->create($organizationData);
+        $location = $this->officeRepository->firstOrCreateLocation($request);
+        $officeData = $request->only(['name', 'description', 'email']);
+        $officeData['location_id'] = $location->id;
+
+        $office = $this->officeRepository->create($officeData);
 
         return response()->json(['id' => $office->id]);
     }
@@ -87,7 +99,9 @@ class OfficeController extends Controller
         OfficeRequest $request
     ) : JsonResponse
     {
-        $officeData = $request->only(['name', 'description', 'slug', 'email', 'tmpFile']);
+        $location = $this->officeRepository->firstOrCreateLocation($request);
+        $officeData = $request->only(['name', 'description', 'slug', 'email',]);
+        $officeData['location_id'] = $location->id;
 
         return response()->json(['organization' => $office->update($officeData)]);
     }

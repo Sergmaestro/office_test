@@ -1,43 +1,45 @@
 <template>
     <div class="container pt-4 pb-4">
-        <div class="row">
-            <div class="d-flex col-lg-12 justify-content-between page-info-holder">
-                <h3>Offices</h3>
-                <a class="btn btn-success"
-                   :href="getURLByRouteName('office.edit', '0')">
-                    Create Office
-                </a>
-            </div>
+        <div class="d-flex col-lg-12 justify-content-between page-info-holder mb-3">
+            <h3>Offices</h3>
+            <a class="btn btn-success"
+               :href="getURLByRouteName('office.edit', '0')">
+                Create Office
+            </a>
         </div>
 
         <div id="officeList">
             <div v-if="officeList.length" class="et-organization-list-heading pb-2">
                 <div class="holder d-flex">
-                    <div class="col-md-4 l-data">Name</div>
-                    <div class="col-md-2 hide-mobile">Events</div>
-                    <div class="col-md-2 m-data hide-mobile">Added</div>
+                    <div class="col-md-3">Name</div>
+                    <div class="col-md-3">Country</div>
+                    <div class="col-md-3">Location</div>
+                    <div class="col-md-3">Added</div>
                 </div>
             </div>
             <div v-for="organization in officeList"
                 class="pb-2 pt-2 w-100 organization-card d-flex">
 
-                <div class="d-flex flex-fill organization-data-holder">
-                    <div class="col-md-4 l-data overflow-hidden d-flex
+                <div class="d-flex flex-fill">
+                    <div class="col-md-3 overflow-hidden d-flex
                                 flex-column justify-content-between align-items-start">
-                        <a :href="getURLByRouteName('organization.show', organization.id)"
-                           :title="organization.name"
-                           class="font-weight-bold text-truncate mw-100">
-                            {{ organization.name }}
-                        </a>
-
                         <el-link icon="el-icon-edit"
-                                 :href="getURLByRouteName('organization.edit', organization.id)">
-                            Edit
+                                 class="font-weight-bold text-truncate mw-100"
+                                 :href="getURLByRouteName('office.edit', organization.id)">
+                            {{ organization.name }}
                         </el-link>
                     </div>
 
-                    <div class="col-md-4 l-data font-weight-bold overflow-hidden">
-                        {{ organization.created_at }}
+                    <div class="col-md-3 font-weight-bold overflow-hidden">
+                        {{ getCountryName(organization) }}
+                    </div>
+
+                    <div class="col-md-3 font-weight-bold overflow-hidden">
+                        {{ getLocationName(organization) }}
+                    </div>
+
+                    <div class="col-md-3 font-weight-bold overflow-hidden">
+                        {{ organization.created_at | dateTime }}
                     </div>
 
                 </div>
@@ -54,15 +56,18 @@
         </div>
 
         <p v-if="loading" class="d-flex align-items-center justify-content-center p-1 m-0 mt-3 et-loader">
-            <i class="et-icon-loading"></i> Loading...
+            <i class="fas fa-spinner mr-2"></i> Loading...
         </p>
         <div id="loadMoreOffices" class="invisible p-4 mt-3"></div>
     </div>
 </template>
 
 <script>
+    import Formatter from "../mixins/Formatter";
+
     export default {
         name: "OfficeList",
+        mixins: [ Formatter ],
         props: {
             offices: Array,
             noMore: { type: Boolean, default: () => false },
@@ -90,11 +95,14 @@
             };
         },
         methods: {
-            plural(name, count) {
-                return count === 1 ? name : `${name}s`;
-            },
             getURLByRouteName(name, params) {
                 return route(name, params);
+            },
+            getCountryName(organization) {
+                return organization?.location?.country?.name || '';
+            },
+            getLocationName(organization) {
+                return organization?.location?.name || '';
             },
             load(reload) {
                 this.loading = true;

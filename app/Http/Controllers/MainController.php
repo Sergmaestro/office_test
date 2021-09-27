@@ -25,9 +25,7 @@ class MainController extends Controller
      */
     public function index()
     {
-        return view('welcome', [
-            'events' => []
-        ]);
+        return view('welcome');
     }
 
 }

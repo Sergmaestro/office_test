@@ -25,8 +25,16 @@ Route::get('/', 'MainController@index')->name('main');
 
 // Office routes
 Route::group(['prefix' => 'office', 'as' => 'office.'], function ($route) {
-    $route->get('index', 'OfficeController@list')->name('index');
     $route->get('list', 'OfficeController@list')->name('list');
     $route->get('edit/{id}', 'OfficeController@edit')->name('edit');
+    $route->post('create', 'OfficeController@create')->name('create')
+        ->middleware(['ajax']);
+    $route->put('update/{office}', 'OfficeController@update')->name('update')
+        ->middleware(['ajax']);
+});
+
+// Countries
+Route::group(['prefix' => 'country', 'as' => 'country.'], function ($route) {
+    $route->get('list', 'CountryController@list')->name('list')->middleware(['ajax']);
 });
 

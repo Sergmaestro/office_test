@@ -1,6 +1,7 @@
 require('./bootstrap');
 
 window._ = require('lodash');
+window.moment = require('moment');
 
 window.Vue = require('vue');
 window.route = require('../route');

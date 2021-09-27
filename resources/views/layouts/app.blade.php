@@ -39,7 +39,7 @@
         <header class="et-header et-header-relative bg-white shadow-sm">
             @section('navbar-breadcrumbs')
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('office.index') }}">Office</a>
+                    <a class="nav-link" href="{{ route('office.list') }}">Office</a>
                 </li>
             @endsection
 

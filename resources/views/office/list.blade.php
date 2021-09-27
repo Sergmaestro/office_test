@@ -3,7 +3,7 @@
 @section('navbar-breadcrumbs')
     <ul class="navbar-nav mr-auto">
         <li class="nav-item overflow-hidden">
-            <a class="nav-link text-truncate active" href="{{ route('office.index') }}">
+            <a class="nav-link text-truncate active" href="{{ route('office.list') }}">
                 Offices
             </a>
         </li>

@@ -29,7 +29,7 @@ class CountryRepository
     {
         return array_map(function ($country) {
             $country['label'] = $country['name'];
-            $country['value'] = $country['code'];
+            $country['value'] = $country['id'];
 
             return $country;
         }, self::getAll());
