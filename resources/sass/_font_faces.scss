@@ -1,0 +1,148 @@
+/*
+font-family: 'Cera Pro';
+font-family: 'Source Sans Pro', sans-serif;
+*/
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('/..fonts/CeraPro-Light.eot');
+    src: url('/fonts/CeraPro-Light.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/CeraPro-Light.woff2') format('woff2'),
+    url('/fonts/CeraPro-Light.woff') format('woff'),
+    url('/fonts/CeraPro-Light.ttf') format('truetype'),
+    url('/fonts/CeraPro-Light.svg#CeraPro-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('/fonts/CeraPro-Medium.eot');
+    src: url('/fonts/CeraPro-Medium.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/CeraPro-Medium.woff2') format('woff2'),
+    url('/fonts/CeraPro-Medium.woff') format('woff'),
+    url('/fonts/CeraPro-Medium.ttf') format('truetype'),
+    url('/fonts/CeraPro-Medium.svg#CeraPro-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('/fonts/CeraPro-Bold.eot');
+    src: url('/fonts/CeraPro-Bold.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/CeraPro-Bold.woff2') format('woff2'),
+    url('/fonts/CeraPro-Bold.woff') format('woff'),
+    url('/fonts/CeraPro-Bold.ttf') format('truetype'),
+    url('/fonts/CeraPro-Bold.svg#CeraPro-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('/fonts/CeraPro-Black.eot');
+    src: url('/fonts/CeraPro-Black.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/CeraPro-Black.woff2') format('woff2'),
+    url('/fonts/CeraPro-Black.woff') format('woff'),
+    url('/fonts/CeraPro-Black.ttf') format('truetype'),
+    url('/fonts/CeraPro-Black.svg#CeraPro-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: MainFont;
+    src: url('/fonts/FSElliotWeb-Thin.eot');
+    src: url('/fonts/FSElliotWeb-Thin.eot#iefix') format("embedded-opentype"),
+    url('/fonts/FSElliotWeb-Thin.woff') format("woff");
+    font-weight: 100;
+    font-style: normal
+}
+
+@font-face {
+    font-family: MainFont;
+    src: url('/fonts/FSElliotWeb-ThinItalic.eot');
+    src: url('/fonts/FSElliotWeb-ThinItalic.eot#iefix') format("embedded-opentype"),
+    url('/fonts/FSElliotWeb-ThinItalic.woff') format("woff");
+    font-weight: 100;
+    font-style: italic
+}
+
+@font-face {
+    font-family: MainFont;
+    src: url('/fonts/FSElliotWeb-Light.eot');
+    src: url('/fonts/FSElliotWeb-Light.eot#iefix') format("embedded-opentype"),
+    url('/fonts/FSElliotWeb-Light.woff') format("woff");
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: MainFont;
+    src: url('/fonts/FSElliotWeb-LightItalic.eot');
+    src: url('/fonts/FSElliotWeb-LightItalic.eot#iefix') format("embedded-opentype"),
+    url('/fonts/FSElliotWeb-LightItalic.woff') format("woff");
+    font-weight: 300;
+    font-style: italic
+}
+
+@font-face {
+    font-family: MainFont;
+    src: url('/fonts/FSElliotWeb-Regular.eot');
+    src: url('/fonts/FSElliotWeb-Regular.eot#iefix') format("embedded-opentype"),
+    url('/fonts/FSElliotWeb-Regular.woff') format("woff");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: MainFont;
+    src: url('/fonts/FSElliotWeb-Italic.eot');
+    src: url('/fonts/FSElliotWeb-Italic.eot#iefix') format("embedded-opentype"),
+    url('/fonts/FSElliotWeb-Italic.woff') format("woff");
+    font-weight: 400;
+    font-style: italic
+}
+
+@font-face {
+    font-family: MainFont;
+    src: url('/fonts/FSElliotWeb-Bold.eot');
+    src: url('/fonts/FSElliotWeb-Bold.eot#iefix') format("embedded-opentype"),
+    url('/fonts/FSElliotWeb-Bold.woff') format("woff");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: MainFont;
+    src: url('/fonts/FSElliotWeb-BoldItalic.eot');
+    src: url('/fonts/FSElliotWeb-BoldItalic.eot#iefix') format("embedded-opentype"),
+    url('/fonts/FSElliotWeb-BoldItalic.woff') format("woff");
+    font-weight: 700;
+    font-style: italic
+}
+
+@font-face {
+    font-family: MainFont;
+    src: url('/fonts/FSElliotWeb-Heavy.eot');
+    src: url('/fonts/FSElliotWeb-Heavy.eot#iefix') format("embedded-opentype"),
+    url('/fonts/FSElliotWeb-Heavy.woff') format("woff");
+    font-weight: 900;
+    font-style: normal
+}
+
+@font-face {
+    font-family: MainFont;
+    src: url('/fonts/FSElliotWeb-HeavyItalic.eot');
+    src: url('/fonts/FSElliotWeb-HeavyItalic.eot#iefix') format("embedded-opentype"),
+    url('/fonts/FSElliotWeb-HeavyItalic.woff') format("woff");
+    font-weight: 900;
+    font-style: italic
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');

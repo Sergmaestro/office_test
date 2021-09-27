@@ -1,0 +1,57 @@
+// Body
+$body-bg: #fff;
+
+// Typography
+$font-family-default: MainFont, Arial;
+$main-ff-family: 'Cera Pro';
+$text-ff-family: 'Source Sans Pro', sans-serif;
+
+$enable-responsive-font-sizes: true !default;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$aliceblue: #f3f9fb;
+$black-2: #222222;
+$black-3: #333;
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$dimgray: #545454;
+$yellow: #ffed4a;
+$light-yellow: #fffee5;
+
+$lavender: #e1eff4;
+$lavender-2: #e9effd;
+$dodgerblue: #2b72ff;
+$darkcyan: #1b7a9c;
+$darkcyan-2: #118c8c;
+$mediumturquoise: #57b1cf;
+$moccasin: #fde8bb;
+$papayawhip: #fff2d6;
+$darkorange: #ff9820;
+$sandybrown: #ffc038;
+$sandybrown-2: #ffbf39;
+$whitesmoke: #efefef;
+$paleturquoise: #c3ffe2;
+$seagreen: #38996a;
+
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+$grey-c4: #c4c4c4;
+$whitesmoke: #f3f3f3;
+
+$et-link-color: #18a04f;
+$et-link-hover-color: #18a04f;
+
+$article-link-color: #409EFF;
+
+$default-shadow: 0 0 8px hsla(0,0,80%,.5);
+$hover-shadow: 0 0 12px hsla(0,0%,55%,.5);
+$breadcrumb-divider: quote(">");
+
+$max-content-width: 1600px;

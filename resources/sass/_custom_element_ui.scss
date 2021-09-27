@@ -1,0 +1,23 @@
+.el-message-box {
+    width: 100%!important;
+    max-width: 420px;
+}
+
+.el-message {
+    max-width: 600px;
+    @include media-breakpoint-down('sm') {
+        max-width: 100%!important;
+        min-width: 310px!important;
+    }
+}
+
+.el-tabs {
+    .el-tabs__content {
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        &:not(.min-height-auto) {
+            min-height: 500px;
+        }
+    }
+}
