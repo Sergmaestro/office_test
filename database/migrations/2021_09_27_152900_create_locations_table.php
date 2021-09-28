@@ -21,7 +21,7 @@ class CreateLocationsTable extends Migration
 
             $table->foreign('country_id')
                 ->references('id')
-                ->on('locations')
+                ->on('countries')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

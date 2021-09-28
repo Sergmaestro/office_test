@@ -19,22 +19,4 @@ class Authenticate extends Middleware
             return route('login');
         }
     }
-
-    public function handle($request, Closure $next, ...$guards)
-    {
-        $response = parent::handle($request, $next, $guards);
-        if (
-            $request->isMethod('GET')
-            && !$request->ajax()
-            && !$request->routeIs('workspace', 'review.*', 'team.*')
-            && !auth()->user()->acceptedPPAndTOS())
-        {
-            $request->session()->flash('success', 'Please review your profile and fill in missing details if needed.');
-            $request->session()->flash('back-url', $request->fullUrl());
-
-            return redirect()->route('workspace', ['#profile']);
-        }
-
-        return $response;
-    }
 }

@@ -51,7 +51,10 @@
         </div>
         <el-row>
             <el-form-item>
-                <el-button type="primary" :loading="loading" @click="onSubmit">
+                <el-button type="primary"
+                           :loading="loading"
+                           :disabled="disabled"
+                           @click="onSubmit">
                     {{ office.id ? 'Update' : 'Create' }}
                 </el-button>
                 <el-button @click="onCancel">Cancel</el-button>
@@ -73,6 +76,7 @@
         data() {
             return {
                 loading: false,
+                disabled : false,
                 fit: 'cover',
                 office: this.model,
                 rules: {
@@ -112,10 +116,8 @@
                         if (!this.office.id) {
                             axios.post(route('office.create'), this.office)
                                 .then(res => {
-                                    this.$message.success('Successfully created!');
-                                    setTimeout(() => location.assign(
-                                        route('office.list')), 3000
-                                    )
+                                    this.onSuccess('created');
+
                                 })
                                 .catch(err => {
                                     if (err.response.status === 422) {
@@ -129,10 +131,7 @@
                                 this.office
                             )
                             .then(res => {
-                                this.$message.success('Successfully updated!');
-                                setTimeout(() => location.assign(
-                                    route('office.list')), 3000
-                                )
+                                this.onSuccess('updated');
                             }).catch(err => {
                                 if (err.response.status === 422) {
                                     this.handleErrors(err.response.data.errors);
@@ -141,6 +140,13 @@
                         }
                     }
                 });
+            },
+            onSuccess(action) {
+                this.$message.success(`Successfully ${action}!`);
+                this.disabled = true;
+                setTimeout(() => location.assign(
+                    route('office.list')), 3000
+                );
             },
             onCancel() {
                 location.assign(route('office.list'));

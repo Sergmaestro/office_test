@@ -14,9 +14,7 @@
     <div class="container pt-4 pb-4">
         <div class="justify-content-between">
             <h3>{{ !(empty($office->id)) ? 'Edit' : 'Add New' }} Office</h3>
-            @if(!(empty($office->id)))
-                <a href="{{ route('office.list') }}"><i class="fas fa-backward"></i> Back to office list</a>
-            @endif
+            <a href="{{ route('office.list') }}"><i class="fas fa-backward"></i> Back to office list</a>
         </div>
 
         <div class="border mt-4 pt-4">

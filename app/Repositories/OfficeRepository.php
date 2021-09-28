@@ -31,6 +31,10 @@ class OfficeRepository
         return Office::create($data);
     }
 
+    /**
+     * @param $request
+     * @return mixed
+     */
     public function firstOrCreateLocation($request)
     {
         return Location::firstOrCreate([
